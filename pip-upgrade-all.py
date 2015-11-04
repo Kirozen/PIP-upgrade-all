@@ -1,5 +1,17 @@
-import pip
-from subprocess import call
+""" pip-upgrade-all.py """
 
-for dist in pip.get_installed_distributions():
-    call("pip install --upgrade " + dist.project_name, shell=True)
+__author__ = "Etienne Faisant"
+__date__ = "2015-11-04"
+
+__version__ = "1.0"
+
+import pip
+
+
+def upgrade_all():
+    for dist in pip.get_installed_distributions():
+        pip.main(['install', '--upgrade', dist.project_name])
+
+
+if __name__ == '__main__':
+    upgrade_all()
