@@ -9,6 +9,7 @@ import pip
 
 
 def upgrade_all():
+    pip.main(['install', '--upgrade', 'pip'])
     for dist in pip.get_installed_distributions():
         pip.main(['install', '--upgrade', dist.project_name])
 
